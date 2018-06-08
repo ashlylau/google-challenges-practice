@@ -15,6 +15,9 @@ public class BusCount {
     this.cases = cases;
   }
 
+  public List<Case> getCases() {
+    return cases;
+  }
 
   @Override
   public String toString() {
@@ -31,9 +34,9 @@ public class BusCount {
 
 
     //implement reading of file (blank space)
-
+    //File file = new File("C:\\Users\\Ashly Lau\\Desktop\\google-challenges-practice\\codejam-kickstart-practice-round-2018\\src\\AGBusCount\\test.in");
     File file = new File("C:\\Users\\Ashly Lau\\Downloads\\A-small-practice.in");
-    BufferedReader br = new BufferedReader(new FileReader(file));
+    //BufferedReader br = new BufferedReader(new FileReader(file));
 
 //    String st;
 //    while ((st = br.readLine()) != null) {
@@ -48,12 +51,12 @@ public class BusCount {
     Scanner in = new Scanner(new BufferedReader(new FileReader(file)));
     int numCases = in.nextInt();
     int OGnumCases = numCases;
-    System.out.println("numCases: " + numCases);
+    //System.out.println("numCases: " + numCases);
     List<Case> cases = new ArrayList<>();
 
     while (numCases > 0) {
       int numBuses = in.nextInt();
-      System.out.println("numBuses: " + numBuses);
+      //System.out.println("numBuses: " + numBuses);
       List<Integer> citiesCovered = new ArrayList<>();
       for (int i = 0; i < numBuses * 2; i++) {
         citiesCovered.add(in.nextInt());
@@ -78,7 +81,13 @@ public class BusCount {
 
     BusCount busCount = new BusCount(OGnumCases, cases);
 
-    System.out.println(busCount.toString());
+    for (int i = 0; i < OGnumCases; i++) {
+      System.out.print("Case #" + (i+1) + ": ");
+      busCount.getCases().get(i).printCounts();
+      //System.out.println();
+    }
+
+    //System.out.println(busCount.toString());
 
   }
 
