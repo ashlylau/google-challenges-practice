@@ -32,7 +32,7 @@ public class MyIterator {
       sb.append(i);
       sb.append(',');
     }
-    //sb.deleteCharAt(sb.length());
+    sb.deleteCharAt(sb.length()-1);
     sb.append(']');
 
     return sb.toString();

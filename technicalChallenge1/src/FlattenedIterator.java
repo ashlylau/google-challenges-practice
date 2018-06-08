@@ -41,7 +41,7 @@ public class FlattenedIterator {
       sb.append(i.toString());
       sb.append(',');
     }
-    //sb.deleteCharAt(sb.length());
+    sb.deleteCharAt(sb.length()-1);
     sb.append('}');
     return sb.toString();
   }
