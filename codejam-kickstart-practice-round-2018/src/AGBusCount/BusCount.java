@@ -31,22 +31,23 @@ public class BusCount {
 
 
     //implement reading of file (blank space)
-    /*
+
     File file = new File("C:\\Users\\Ashly Lau\\Downloads\\A-small-practice.in");
     BufferedReader br = new BufferedReader(new FileReader(file));
 
-    String st;
-    while ((st = br.readLine()) != null) {
-      if (st.isEmpty()) {
-        System.out.println("emptyyyy");
-      } else {
-        System.out.println(st);
-      }
-    }
-    */
+//    String st;
+//    while ((st = br.readLine()) != null) {
+//      if (st.isEmpty()) {
+//        System.out.println("emptyyyy");
+//      } else {
+//        System.out.println(st);
+//      }
+//    }
 
-    Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+
+    Scanner in = new Scanner(new BufferedReader(new FileReader(file)));
     int numCases = in.nextInt();
+    int OGnumCases = numCases;
     System.out.println("numCases: " + numCases);
     List<Case> cases = new ArrayList<>();
 
@@ -57,22 +58,25 @@ public class BusCount {
       for (int i = 0; i < numBuses * 2; i++) {
         citiesCovered.add(in.nextInt());
       }
-      System.out.println(citiesCovered.toString());
+      //System.out.println(citiesCovered.toString());
 
       List<Integer> citiesToCount = new ArrayList<>();
 
-      while (in.hasNextLine()) {
-        do {
-          citiesToCount.add(in.nextInt());
-          System.out.println(citiesToCount);
-        } while (!in.nextLine().isEmpty());
-        Case newCase = new Case(numBuses, citiesCovered, citiesToCount);
-        cases.add(newCase);
-        numCases--;
+      String st;
+      in.nextLine();
+      while ((st = in.nextLine()) != null) {
+        if (st.isEmpty()) {
+          break;
+        } else {
+          citiesToCount.add(Integer.parseInt(st));
+        }
       }
+      Case newCase = new Case(numBuses, citiesCovered, citiesToCount);
+      cases.add(newCase);
+      numCases--;
     }
 
-    BusCount busCount = new BusCount(numCases, cases);
+    BusCount busCount = new BusCount(OGnumCases, cases);
 
     System.out.println(busCount.toString());
 
