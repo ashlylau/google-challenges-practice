@@ -23,8 +23,8 @@ public class Main {
         }
       }
     }
-    System.out.println(maxArea);
-    System.out.println("(" + map.get(maxArea).getKey() + "," + map.get(maxArea).getValue() + ")");
+    System.out.println("Area: " + maxArea);
+    System.out.println("Indices: (" + map.get(maxArea).getKey() + "," + map.get(maxArea).getValue() + ")");
     //System.out.println(map.toString());
   }
 
